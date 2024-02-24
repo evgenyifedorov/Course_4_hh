@@ -16,7 +16,7 @@ class request_debug(UserForm):
         метод поиска ошибок ввода количества вакансий
         :return: int
         """
-        self.top_n = input("Введите колличество вакансий:\n ")
+        self.top_n = input("Введите колличество вакансий:\n ").strip()
         if self.top_n.isalpha():
             raise ValueError("Надо вводить число")
         if self.top_n == "":
@@ -30,7 +30,7 @@ class request_debug(UserForm):
         метод ввода ошибок вакансий
         :return:
         """
-        self.search_query = input("Введите поисковой запрос:\n ")
+        self.search_query = input("Введите поисковой запрос:\n ").strip()
         if self.search_query.isdigit():
             raise TypeError("Запрос не может быть числом")
         if self.search_query == "":
