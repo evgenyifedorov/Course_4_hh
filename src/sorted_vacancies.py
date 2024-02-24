@@ -35,7 +35,7 @@ class sortedVacancy:
                 "skill_2": i["snippet"]["responsibility"],
                 "date": self.date_format
             })
-            return self.hh_sorted
+        return self.hh_sorted
 
 
 if __name__ == '__main__':
