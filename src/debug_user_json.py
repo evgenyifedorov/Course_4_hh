@@ -19,8 +19,8 @@ class DebugUser(UserForm):
 
         if self.payment.isalpha():
             raise ValueError("Надо вводить число")
-        if self.payment == " ":
-            self.payment = 0
+        if self.payment == "":
+            raise ValueError("Нужно ввести числовое значение ")
         return int(self.payment)
 
 
@@ -32,10 +32,13 @@ class DebugUser(UserForm):
         self.city = input("Введите город:\n ").title()
         if self.city.isdigit():
             raise TypeError("Название введите буквами:\n ")
+        if self.city == "":
+            raise AttributeError("должно быть название города")
         return self.city
 
 
 if __name__ == '__main__':
     r = DebugUser()
-    print(r.user_input_str())
+
+    print(r.user_input_int())
 
