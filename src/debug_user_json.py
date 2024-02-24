@@ -15,12 +15,11 @@ class DebugUser(UserForm):
         ошибки на ввод зарплаты
         :return:
         """
-        self.payment = input("Введите минимальную зарплату:\n ")
-
+        self.payment = input("Введите минимальную зарплату:\n ").strip()
         if self.payment.isalpha():
             raise ValueError("Надо вводить число")
         if self.payment == "":
-            raise ValueError("Нужно ввести числовое значение ")
+            self.payment = 0
         return int(self.payment)
 
 
@@ -29,11 +28,9 @@ class DebugUser(UserForm):
         ошибка ввода города
         :return:
         """
-        self.city = input("Введите город:\n ").title()
+        self.city = input("Введите город:\n ").title().strip()
         if self.city.isdigit():
             raise TypeError("Название введите буквами:\n ")
-        if self.city == "":
-            raise AttributeError("должно быть название города")
         return self.city
 
 
