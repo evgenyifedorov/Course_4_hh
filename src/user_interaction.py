@@ -1,18 +1,19 @@
-from src.requests_debug import request_debug
+from src.requests_debug import RequestDebug
 from src.debug_user_json import DebugUser
-from src.sorted_vacancies import sortedVacancy
-from src.HHConection import Get_had_hanter
+from src.sorted_vacancies import Sortedvacancy
+from src.hh_conection import GetJson
 
 
-class UserInteractionHeadHunter(request_debug):
+class UserInteractionHeadHunter(RequestDebug):
     """
     Класс взаимодействия пользователя с сайтом HeadHunter
     """
     def user_search(self):
         search_query = self.user_input_str()
         top_n = self.user_input_int()
-        result_search = Get_had_hanter(search_query, top_n)
+        result_search = GetJson(search_query, top_n)
         result_search.get_json()
+
 
 
 class UserInteractionJson(DebugUser):
@@ -24,7 +25,7 @@ class UserInteractionJson(DebugUser):
         Метод сортировки вакансий Json файла
         """
         vacancies_list = []
-        json_file = sortedVacancy()
+        json_file = Sortedvacancy()
         json_vacancies = json_file.sorted_vacancies_hh
         payment = self.user_input_int()
         city = self.user_input_str()
@@ -48,3 +49,5 @@ class UserInteractionJson(DebugUser):
 if __name__ == '__main__':
     r = UserInteractionHeadHunter()
     r.user_search()
+
+
