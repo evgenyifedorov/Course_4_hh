@@ -1,11 +1,11 @@
-from src.vacancis_api import vacancy_API
+from src.vacancis_api import VacancyApi
 from src.vacancy import Vacancy
 import json
 import requests
 from config import FILE
 
 
-class Get_had_hanter(vacancy_API, Vacancy):
+class GetHadHanter(VacancyApi, Vacancy):
     """
     Класс для получения вакансий с сайта HeadHunter
 
@@ -42,6 +42,9 @@ class Get_had_hanter(vacancy_API, Vacancy):
                                     'per_page': self.top_n}).json()
         return date
 
+
+class GetJson(GetHadHanter, Vacancy):
+
     def get_json(self):
         """
         создание и запись полученных данных в json файл
@@ -52,5 +55,5 @@ class Get_had_hanter(vacancy_API, Vacancy):
 
 
 if __name__ == '__main__':
-    r = Get_had_hanter('python', 100)
+    r = GetJson('python', 100)
     r.get_json()
