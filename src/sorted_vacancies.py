@@ -4,7 +4,7 @@ from datetime import datetime
 from pprint import pprint
 
 
-class sortedVacancy:
+class Sortedvacancy:
     def __init__(self):
         self.hh_sorted = []
         self.date_format = None
@@ -39,5 +39,5 @@ class sortedVacancy:
 
 
 if __name__ == '__main__':
-    r = sortedVacancy()
+    r = Sortedvacancy()
     pprint(r.sorted_vacancies_hh)
