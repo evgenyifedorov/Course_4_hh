@@ -1,7 +1,7 @@
 from src.user_froms import UserForm
 
 
-class request_debug(UserForm):
+class RequestDebug(UserForm):
     """
     класс поиска ошибок вакансий
 
@@ -40,5 +40,5 @@ class request_debug(UserForm):
 
 
 if __name__ == '__main__':
-    r = request_debug()
+    r = RequestDebug()
     print(r.user_input_str())
